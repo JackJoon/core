@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Scope;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.inject.Provider;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -38,7 +39,7 @@ public class SingletonWithPrototypeTest1
 
         ClientBean clientBean2 = ac.getBean(ClientBean.class);
         int count2 = clientBean1.logic();
-        assertThat(count2).isEqualTo(2);
+        assertThat(count2).isEqualTo(1);
 
     }
 
@@ -49,6 +50,9 @@ public class SingletonWithPrototypeTest1
         @Autowired
         ApplicationContext applicationContext;
 
+        @Autowired
+        private Provider<PrototypeBean> prototypeBeanProvidcer;
+
 
         /*@Autowired
         public ClientBean(PrototypeBean prototypeBean) {
@@ -56,7 +60,8 @@ public class SingletonWithPrototypeTest1
         }*/
 
         public int logic() {
-            PrototypeBean prototypeBean = applicationContext.getBean(PrototypeBean.class);
+            //PrototypeBean prototypeBean = applicationContext.getBean(PrototypeBean.class);
+            PrototypeBean prototypeBean = prototypeBeanProvidcer.get();     // java.inject.Provier 새로운 프로토타입의 빈 생성 확인
             prototypeBean.addCount();
             int count = prototypeBean.getCount();
             return count;
