@@ -3,6 +3,7 @@ package sp.core.member;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import sp.core.AppConfig;
 
 public class MemberServiceTest {
@@ -10,7 +11,7 @@ public class MemberServiceTest {
 
     //MemberSerivce memberSerivce = new MemberServiceImpl();
 
-    MemberService memberSerivce;
+     MemberService memberSerivce;
 
     @BeforeEach
     public void beforeEach() {

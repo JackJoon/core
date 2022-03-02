@@ -7,13 +7,14 @@ import sp.core.AppConfig;
 import sp.core.member.Grade;
 import sp.core.member.Member;
 import sp.core.member.MemberService;
+import sp.core.member.MemberServiceImpl;
 
 public class OrderSeriveTest {
 
-    /*MemberSerivce memberSerivce = new MemberServiceImpl();
-    OrderService orderSerivice = new OrderServiceImpl();*/
+    /*MemberService memberSerivce = new MemberServiceImpl();
+    OrderService orderSerivice = new OrderServiceImpl(); */
 
-    MemberService memberSerivce;
+     MemberService memberSerivce;
     OrderService orderSerivice;
 
 
